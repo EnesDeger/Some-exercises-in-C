@@ -1,7 +1,7 @@
 #include<stdio.h>
 
-void two_podoubles(double a,double b,double c, double d);
-void podouble_slope(double x, double y, double m);
+void two_points(double a,double b,double c, double d);
+void point_slope(double x, double y, double m);
 
 double main() {
 
@@ -16,13 +16,13 @@ double main() {
 
 	if(a == 1) {
 
-		printf("Enter your first podouble (x,y) by using a space between them:");
+		printf("Enter your first point (x,y) by using a space between them:");
 		scanf("%lf %lf", &k,&l);
 
-		printf("Enter your second podouble (x,y) by using a space between them:");
+		printf("Enter your second point (x,y) by using a space between them:");
 		scanf("%lf %lf", &m,&n);
 
-		two_podoubles(k,l,m,n);
+		two_points(k,l,m,n);
 
 	}
 
@@ -34,7 +34,7 @@ double main() {
 		printf("Enter your slope:");
 		scanf("%lf", &m);
 
-		podouble_slope(k,l,m);
+		point_slope(k,l,m);
 
 	}
 	else {
@@ -45,29 +45,42 @@ double main() {
 }
 
 
-void two_podoubles(double a,double b,double c, double d) {
+void two_points(double a,double b,double c, double d) {
 
 	double slope,heh;
 
 	slope = (a+b)/(c+d);
 
 	heh = a - slope*b;
-
-	printf("Point-Slope form     :    y-%g = %g(x-%g)\n",a,slope,b);
-	printf("Slope-intercept form :    y = %gx + %g",slope,heh);
-
+	
+	if(heh >= 0)
+	{
+	    printf("Point-Slope form     :    y-%g = %g(x-%g)\n",a,slope,b);
+	    printf("Slope-intercept form :    y = %gx + %g",slope,heh);
+    }
+    else{
+        heh = -heh;
+        printf("Point-Slope form     :    y-%g = %g(x-%g)\n",a,slope,b);
+	    printf("Slope-intercept form :    y = %gx - %g",slope,heh);
+        
+        
+    }
 }
 
 
-void podouble_slope(double x, double y, double m) {
+void point_slope(double x, double y, double m) {
 
 	double heh;
 	heh = y - x*m;
 	
-	printf("Point-Slope form     :    y-%g = %g(x-%g)\n",y,m,x);
-	printf("Slope-intercept form :    y = %gx + %g",m,heh);
-
-
-
-
+	if(heh >= 0)
+	{
+    	printf("Point-Slope form     :    y-%g = %g(x-%g)\n",y,m,x);
+    	printf("Slope-intercept form :    y = %gx + %g",m,heh);
+	}
+	else{
+        heh = -heh;
+	    printf("Point-Slope form     :    y-%g = %g(x-%g)\n",y,m,x);
+        printf("Slope-intercept form :    y = %gx - %g",m,heh);
+	}
 }
