@@ -11,8 +11,9 @@ double main() {
 	printf("This program finds the equation of your line in 2D\n");
 	printf("1)  2 points\n");
 	printf("2)  1 points and the slope\n");
-	printf("What is known about the line?\n =>");
-	scanf("%lf", &a);
+	do{
+        printf("What is known about the line?\n =>");
+        scanf("%lf", &a);
 
 	if(a == 1) {
 
@@ -38,8 +39,10 @@ double main() {
 
 	}
 	else {
-		printf("Invalid argument!");
+		printf("Invalid argument! Try again.");
 	}
+	}while(a!=1 && a!=2);
+
 
 	return(0);
 }
@@ -49,10 +52,10 @@ void two_points(double a,double b,double c, double d) {
 
 	double slope,heh;
 
-	slope = (a+b)/(c+d);
+	slope = (d-b)/(c-a);
 
 	heh = a - slope*b;
-	
+
 	if(heh >= 0)
 	{
 	    printf("Point-Slope form     :    y-%g = %g(x-%g)\n",a,slope,b);
@@ -62,8 +65,8 @@ void two_points(double a,double b,double c, double d) {
         heh = -heh;
         printf("Point-Slope form     :    y-%g = %g(x-%g)\n",a,slope,b);
 	    printf("Slope-intercept form :    y = %gx - %g",slope,heh);
-        
-        
+
+
     }
 }
 
@@ -72,7 +75,7 @@ void point_slope(double x, double y, double m) {
 
 	double heh;
 	heh = y - x*m;
-	
+
 	if(heh >= 0)
 	{
     	printf("Point-Slope form     :    y-%g = %g(x-%g)\n",y,m,x);
