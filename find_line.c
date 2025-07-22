@@ -3,7 +3,7 @@
 void two_points(double a,double b,double c, double d);
 void point_slope(double x, double y, double m);
 
-double main() {
+int main() {
 
 	double a;
 	double k,l,m,n;
